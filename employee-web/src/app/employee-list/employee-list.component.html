@@ -1,0 +1,27 @@
+<h2>My Employee</h2>
+<ul class="employees">
+        <!-- (click)="onSelect(emp)"  [class.selected]="emp === selectedEmp" -->
+        <li>ID, Name, City , Phone, Salary, DateOfBirth, CreatedTime</li>
+    <li *ngFor="let emp of employees"  >
+        <a routerLink="/detail/{{emp.empId}}">
+            <span class="badge">{{emp.empId}}</span> {{emp.name}} |
+            {{emp.city}} |  {{emp.phone}} | {{emp.salary}} | {{emp.dobirth | date:'yyyy-MM-dd'}} |
+             {{emp.createdTime | date:'dd/MM/yyyy HH:mm:ss a'}} 
+        </a>
+    </li>
+</ul>
+
+<!--
+<div *ngIf="selectedEmp">
+
+    <h2>{{selectedEmp.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedEmp.id}}</div>
+    <div>
+    <label>name:
+        <input [(ngModel)]="selectedEmp.name" placeholder="name"/>
+    </label>
+    </div>
+
+</div>
+<app-employee-detail [employee]="selectedEmp"></app-employee-detail>
+-->
